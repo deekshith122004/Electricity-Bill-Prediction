@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Electricity Bill Prediction</title>
+</head>
+
+<body>
+
+    <h2>Electricity Bill Prediction</h2>
+
+    <form action="/predict" method="POST">
+
+        <p>Units Consumed:</p>
+        <input type="number" name="units" min="0" required>
+
+        <p>Number of Appliances:</p>
+        <input type="number" name="appliances" min="0" required>
+
+        <p>Family Members:</p>
+        <input type="number" name="family" min="1" required>
+
+        <p>AC Usage Hours:</p>
+        <input type="number" name="ac" min="0" max="24" step="any" required>
+
+        <br><br>
+
+        <button type="submit">Predict Bill</button>
+
+    </form>
+
+    {% if bill is not none %}
+        <h2>Predicted Electricity Bill</h2>
+        <h3>Rs. {{ bill }}</h3>
+    {% endif %}
+
+</body>
+</html>
